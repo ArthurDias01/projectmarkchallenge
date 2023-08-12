@@ -1,8 +1,14 @@
+import { cn } from '@/utils/cn'
 import './globals.css'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Archivo } from 'next/font/google'
+import { Header } from '@/components/Layout/Header'
 
-const inter = Inter({ subsets: ['latin'] })
+const arquivo = Archivo({
+  subsets: ['latin'],
+  display: 'swap',
+  weight: ['400', '500', '700'],
+})
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -16,7 +22,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={cn(arquivo.className, 'bg-gray-250 flex min-h-screen flex-col px-[10px]')}>
+        <Header />
+        {children}
+      </body>
     </html>
   )
 }
